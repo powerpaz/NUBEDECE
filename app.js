@@ -2151,14 +2151,16 @@ async function loadDistrictsLayer(){
     }
     districtsLayer = L.geoJSON(gj, {
       style: () => ({
-        weight: 3,
-        opacity: 0.9,
-        fillOpacity: 0,
-        dashArray: '4,6'
-      }),
-      onEachFeature: (feature, layer) => {
-        const code = normalizeDistrictCode(feature?.properties?.DA_DIST || '');
-        layer.bindTooltip(code || 'Distrito', { sticky: true, direction: 'top' });
+      color: '#000000',
+      weight: 3,
+      opacity: 0.9,
+      fillOpacity: 0,
+      dashArray: '4,6'
+  }),
+  onEachFeature: (feature, layer) => {
+    const code = normalizeDistrictCode(feature?.properties?.DA_DIST || '');
+    layer.bindTooltip(code || 'Distrito', { sticky: true, direction: 'top' });
+  }
       }
     });
     districtsLayer.addTo(layers.districts);
